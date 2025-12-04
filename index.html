@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Van Linh - Developer Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading">
+        <div class="loader-container">
+            <div class="code-loader">
+                <span class="bracket">{</span>
+                <span class="loading-dots">
+                    <span>.</span><span>.</span><span>.</span>
+                </span>
+                <span class="bracket">}</span>
+            </div>
+            <p class="loader-text">Compiling...</p>
+        </div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="matrix-rain" id="matrixRain"></div>
+        <div class="stars" id="stars"></div>
+        <div class="shooting-stars" id="shootingStars"></div>
+        <div class="floating-shapes" id="shapes"></div>
+        <div class="code-particles" id="codeParticles"></div>
+    </div>
+
+    <!-- Cursor Effect -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- Navigation -->
+    <nav class="nav-bar" id="navbar">
+        <div class="nav-logo">
+            <span class="logo-bracket">&lt;</span>VL<span class="logo-bracket">/&gt;</span>
+        </div>
+        <div class="nav-links">
+            <a href="#profile" class="nav-link active" data-section="profile">Profile</a>
+            <a href="#gallery" class="nav-link" data-section="gallery">Gallery</a>
+            <a href="#social" class="nav-link" data-section="social">Social</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Profile Section -->
+        <section class="section profile-section" id="profile">
+            <div class="profile-card" id="profileCard">
+                <div class="card-glow"></div>
+                <div class="card-border"></div>
+                <div class="glitch-effect"></div>
+                
+                <!-- Avatar Section -->
+                <div class="avatar-container">
+                    <div class="avatar-ring">
+                        <div class="ring ring-1"></div>
+                        <div class="ring ring-2"></div>
+                        <div class="ring ring-3"></div>
+                        <div class="orbit-dot"></div>
+                    </div>
+                    <div class="avatar-wrapper">
+                        <img src="VanLinh.jpg" alt="Van Linh" class="avatar">
+                        <div class="avatar-shine"></div>
+                        <div class="avatar-glitch"></div>
+                    </div>
+                    <div class="status-badge">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Available for hire</span>
+                    </div>
+                </div>
+
+                <!-- Info Section -->
+                <div class="info-section">
+                    <h1 class="name glitch-text" data-text="Van Linh">
+                        <span class="letter" style="--i:0">V</span>
+                        <span class="letter" style="--i:1">a</span>
+                        <span class="letter" style="--i:2">n</span>
+                        <span class="letter" style="--i:3"> </span>
+                        <span class="letter" style="--i:4">L</span>
+                        <span class="letter" style="--i:5">i</span>
+                        <span class="letter" style="--i:6">n</span>
+                        <span class="letter" style="--i:7">h</span>
+                    </h1>
+                    <div class="title-wrapper">
+                        <span class="title-prefix">&lt;</span>
+                        <p class="job-title" id="jobTitle"></p>
+                        <span class="title-suffix">/&gt;</span>
+                        <span class="cursor-blink">|</span>
+                    </div>
+                    <p class="bio">Passionate about creating beautiful & functional code ✨</p>
+                    
+                    <!-- Skills -->
+                    <div class="skills-container">
+                        <div class="skill-tag" style="--delay: 0">
+                            <i class="fab fa-html5"></i> HTML
+                        </div>
+                        <div class="skill-tag" style="--delay: 1">
+                            <i class="fab fa-css3-alt"></i> CSS
+                        </div>
+                        <div class="skill-tag" style="--delay: 2">
+                            <i class="fab fa-js"></i> JavaScript
+                        </div>
+                        <div class="skill-tag" style="--delay: 3">
+                            <i class="fab fa-react"></i> React
+                        </div>
+                        <div class="skill-tag" style="--delay: 4">
+                            <i class="fab fa-node-js"></i> Node.js
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Section -->
+                <div class="stats-section">
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-code"></i></div>
+                        <span class="stat-number" data-target="1500">0</span>
+                        <span class="stat-label">Commits</span>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
+                        <span class="stat-number" data-target="50">0</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-coffee"></i></div>
+                        <span class="stat-number" data-target="999">0</span>
+                        <span class="stat-label">Coffees</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="section gallery-section" id="gallery">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-icon"><i class="fas fa-camera-retro"></i></span>
+                    My Photography
+                </h2>
+                <p class="section-subtitle">Capturing moments through my lens</p>
+            </div>
+
+            <!-- Gallery Filter -->
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="nature">Nature</button>
+                <button class="filter-btn" data-filter="city">City</button>
+                <button class="filter-btn" data-filter="night">Night</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-item" data-category="nature" data-aos="zoom-in">
+                    <div class="gallery-card">
+                        <img src="photos/sunset-village.jpg" alt="Hoàng hôn làng quê">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Hoàng Hôn Làng Quê</h3>
+                                <p>Vẻ đẹp bình yên</p>
+                                <button class="view-btn" onclick="openLightbox(0)">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-shine"></div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="city" data-aos="zoom-in">
+                    <div class="gallery-card">
+                        <img src="photos/lanterns.jpg" alt="Phố cổ cờ đỏ">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Phố Cổ</h3>
+                                <p>Nét đẹp truyền thống</p>
+                                <button class="view-btn" onclick="openLightbox(1)">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-shine"></div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="night" data-aos="zoom-in">
+                    <div class="gallery-card">
+                        <img src="photos/red-flags.jpg" alt="Đèn lồng">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Đèn Lồng Hội An</h3>
+                                <p>Lung linh đêm phố cổ</p>
+                                <button class="view-btn" onclick="openLightbox(2)">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-shine"></div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="city" data-aos="zoom-in">
+                    <div class="gallery-card">
+                        <img src="photos/lake-reflection.jpg" alt="Nắng sớm">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Bình Minh</h3>
+                                <p>Khởi đầu ngày mới</p>
+                                <button class="view-btn" onclick="openLightbox(3)">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-shine"></div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="city" data-aos="zoom-in">
+                    <div class="gallery-card">
+                        <img src="photos/night-park.jpg" alt="Nắng chiều">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Nắng Chiều</h3>
+                                <p>Ánh nắng vàng ấm áp</p>
+                                <button class="view-btn" onclick="openLightbox(4)">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-shine"></div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="night" data-aos="zoom-in">
+                    <div class="gallery-card">
+                        <img src="photos/morning-sun.jpg" alt="Công viên đêm">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Đêm Yên Bình</h3>
+                                <p>Ánh đèn thành phố</p>
+                                <button class="view-btn" onclick="openLightbox(5)">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-shine"></div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" data-aos="zoom-in">
+                    <div class="gallery-card">
+                        <img src="photos/pagoda.jpg" alt="Mặt hồ">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Mặt Hồ Tĩnh Lặng</h3>
+                                <p>Phản chiếu bầu trời</p>
+                                <button class="view-btn" onclick="openLightbox(6)">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-shine"></div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="nature" data-aos="zoom-in">
+                    <div class="gallery-card">
+                        <img src="photos/sunset-city.jpg" alt="Con đường">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Con Đường</h3>
+                                <p>Hành trình phía trước</p>
+                                <button class="view-btn" onclick="openLightbox(7)">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-shine"></div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="night" data-aos="zoom-in">
+                    <div class="gallery-card">
+                        <img src="photos/park-path.jpg" alt="Tháp cổ">
+                        <div class="gallery-overlay">
+                            <div class="overlay-content">
+                                <h3>Tháp Cổ</h3>
+                                <p>Ánh trăng huyền ảo</p>
+                                <button class="view-btn" onclick="openLightbox(8)">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-shine"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox">
+            <button class="lightbox-close" onclick="closeLightbox()">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="lightbox-nav prev" onclick="navigateLightbox(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="lightbox-nav next" onclick="navigateLightbox(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="lightbox-content">
+                <img src="" alt="" id="lightboxImg">
+                <div class="lightbox-info">
+                    <h3 id="lightboxTitle"></h3>
+                    <p id="lightboxDesc"></p>
+                </div>
+            </div>
+            <div class="lightbox-thumbnails" id="lightboxThumbs"></div>
+        </div>
+
+        <!-- Social Section -->
+        <section class="section social-section" id="social">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-icon"><i class="fas fa-link"></i></span>
+                    Connect With Me
+                </h2>
+                <p class="section-subtitle">Let's build something amazing together</p>
+            </div>
+
+            <div class="social-grid">
+                <a href="https://www.tiktok.com/@vanlinh20225?_r=1&_t=ZS-91vlUuSzC47" class="social-card tiktok" target="_blank">
+                    <div class="card-bg"></div>
+                    <div class="card-content">
+                        <div class="icon-wrapper">
+                            <i class="fab fa-tiktok"></i>
+                            <div class="icon-ring"></div>
+                        </div>
+                        <h3>TikTok</h3>
+                        <p>@vanlinh</p>
+                        <span class="follow-btn">Follow</span>
+                    </div>
+                    <div class="card-particles"></div>
+                </a>
+
+                <a href="https://www.facebook.com/van.linh.983706" class="social-card facebook" target="_blank">
+                    <div class="card-bg"></div>
+                    <div class="card-content">
+                        <div class="icon-wrapper">
+                            <i class="fab fa-facebook-f"></i>
+                            <div class="icon-ring"></div>
+                        </div>
+                        <h3>Facebook</h3>
+                        <p>Van Linh</p>
+                        <span class="follow-btn">Add Friend</span>
+                    </div>
+                    <div class="card-particles"></div>
+                </a>
+
+                <a href="https://www.instagram.com/vanlinh2506_/" class="social-card instagram" target="_blank">
+                    <div class="card-bg"></div>
+                    <div class="card-content">
+                        <div class="icon-wrapper">
+                            <i class="fab fa-instagram"></i>
+                            <div class="icon-ring"></div>
+                        </div>
+                        <h3>Instagram</h3>
+                        <p>@vanlinh</p>
+                        <span class="follow-btn">Follow</span>
+                    </div>
+                    <div class="card-particles"></div>
+                </a>
+
+                <a href="https://www.youtube.com/@xinux8190" class="social-card youtube" target="_blank">
+                    <div class="card-bg"></div>
+                    <div class="card-content">
+                        <div class="icon-wrapper">
+                            <i class="fab fa-youtube"></i>
+                            <div class="icon-ring"></div>
+                        </div>
+                        <h3>YouTube</h3>
+                        <p>Van Linh Channel</p>
+                        <span class="follow-btn">Subscribe</span>
+                    </div>
+                    <div class="card-particles"></div>
+                </a>
+
+                <a href="#" class="social-card telegram" target="_blank">
+                    <div class="card-bg"></div>
+                    <div class="card-content">
+                        <div class="icon-wrapper">
+                            <i class="fab fa-telegram-plane"></i>
+                            <div class="icon-ring"></div>
+                        </div>
+                        <h3>Telegram</h3>
+                        <p>@vanlinh</p>
+                        <span class="follow-btn">Message</span>
+                    </div>
+                    <div class="card-particles"></div>
+                </a>
+
+                <a href="https://zaloapp.com/qr/p/nkz87u9tltsg" class="social-card zalo" target="_blank">
+                    <div class="card-bg"></div>
+                    <div class="card-content">
+                        <div class="icon-wrapper">
+                            <span class="zalo-icon">Z</span>
+                            <div class="icon-ring"></div>
+                        </div>
+                        <h3>Zalo</h3>
+                        <p>Van Linh</p>
+                        <span class="follow-btn">Chat</span>
+                    </div>
+                    <div class="card-particles"></div>
+                </a>
+
+                <a href="https://www.threads.com/@vanlinh2506_?igshid=NTc4MTIwNjQ2YQ==" class="social-card threads" target="_blank">
+                    <div class="card-bg"></div>
+                    <div class="card-content">
+                        <div class="icon-wrapper">
+                            <i class="fab fa-threads"></i>
+                            <div class="icon-ring"></div>
+                        </div>
+                        <h3>Threads</h3>
+                        <p>@vanlinh</p>
+                        <span class="follow-btn">Follow</span>
+                    </div>
+                    <div class="card-particles"></div>
+                </a>
+
+                <a href="https://github.com/VanLinh2506" class="social-card github" target="_blank">
+                    <div class="card-bg"></div>
+                    <div class="card-content">
+                        <div class="icon-wrapper">
+                            <i class="fab fa-github"></i>
+                            <div class="icon-ring"></div>
+                        </div>
+                        <h3>GitHub</h3>
+                        <p>@vanlinh</p>
+                        <span class="follow-btn">Follow</span>
+                    </div>
+                    <div class="card-particles"></div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span>&lt;</span>Van Linh<span>/&gt;</span>
+            </div>
+            <p>Made with <span class="heart">❤️</span> and lots of <span class="coffee">☕</span></p>
+            <p class="copyright">© 2025 Van Linh. All rights reserved.</p>
+        </div>
+        <div class="footer-wave">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+            </svg>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-rocket"></i>
+    </button>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
