@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Van Linh</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="admin-body">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="admin-logo">
+                <span class="logo-bracket">&lt;</span>Admin<span class="logo-bracket">/&gt;</span>
+            </div>
+            <button class="sidebar-toggle" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-section="dashboard">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item" data-section="profile">
+                <i class="fas fa-user"></i>
+                <span>Thông tin cá nhân</span>
+            </a>
+            <a href="#" class="nav-item" data-section="gallery">
+                <i class="fas fa-images"></i>
+                <span>Quản lý ảnh</span>
+            </a>
+            <a href="#" class="nav-item" data-section="social">
+                <i class="fas fa-share-alt"></i>
+                <span>Liên kết MXH</span>
+            </a>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <a href="index.html" class="nav-item">
+                <i class="fas fa-globe"></i>
+                <span>Xem trang web</span>
+            </a>
+            <a href="#" class="nav-item logout" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Đăng xuất</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="header-left">
+                <button class="mobile-toggle" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 id="pageTitle">Dashboard</h1>
+            </div>
+            <div class="header-right">
+                <div class="admin-user">
+                    <img src="VanLinh.jpg" alt="Admin" class="admin-avatar" id="headerAvatar">
+                    <span id="adminName">Admin</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content Sections -->
+        <div class="admin-content">
+            <!-- Dashboard Section -->
+            <section class="content-section active" id="dashboardSection">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><i class="fas fa-images"></i></div>
+                        <div class="stat-info">
+                            <h3 id="totalPhotos">0</h3>
+                            <p>Tổng số ảnh</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green"><i class="fas fa-share-alt"></i></div>
+                        <div class="stat-info">
+                            <h3 id="totalSocial">0</h3>
+                            <p>Liên kết MXH</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon purple"><i class="fas fa-users"></i></div>
+                        <div class="stat-info">
+                            <h3 id="totalUsers">0</h3>
+                            <p>Người dùng</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="welcome-card">
+                    <h2>Chào mừng đến với Admin Panel!</h2>
+                    <p>Quản lý nội dung trang web của bạn một cách dễ dàng.</p>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section class="content-section" id="profileSection">
+                <div class="form-card">
+                    <h2><i class="fas fa-user-edit"></i> Chỉnh sửa thông tin cá nhân</h2>
+                    <form id="profileForm" onsubmit="saveProfile(event)">
+                        <div class="avatar-upload">
+                            <div class="avatar-preview">
+                                <img src="VanLinh.jpg" alt="Avatar" id="avatarPreview">
+                                <label for="avatarInput" class="avatar-edit">
+                                    <i class="fas fa-camera"></i>
+                                </label>
+                            </div>
+                            <input type="file" id="avatarInput" accept="image/*" onchange="previewAvatar(event)" hidden>
+                            <p class="avatar-hint">Click vào ảnh để thay đổi avatar</p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="profileName">Tên hiển thị</label>
+                            <input type="text" id="profileName" placeholder="Nhập tên của bạn">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="profileBio">Giới thiệu</label>
+                            <textarea id="profileBio" rows="3" placeholder="Viết vài dòng về bản thân..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="profileStatus">Trạng thái</label>
+                            <input type="text" id="profileStatus" placeholder="VD: Available for hire">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="statCommits">Số Commits</label>
+                                <input type="number" id="statCommits" placeholder="1500">
+                            </div>
+                            <div class="form-group">
+                                <label for="statProjects">Số Projects</label>
+                                <input type="number" id="statProjects" placeholder="50">
+                            </div>
+                            <div class="form-group">
+                                <label for="statCoffees">Số Coffees</label>
+                                <input type="number" id="statCoffees" placeholder="999">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Kỹ năng (phân cách bằng dấu phẩy)</label>
+                            <input type="text" id="profileSkills" placeholder="HTML, CSS, JavaScript, React, Node.js">
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-save"></i> Lưu thay đổi
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section class="content-section" id="gallerySection">
+                <div class="section-header-admin">
+                    <h2><i class="fas fa-images"></i> Quản lý ảnh</h2>
+                    <button class="btn-primary" onclick="showAddPhotoModal()">
+                        <i class="fas fa-plus"></i> Thêm ảnh mới
+                    </button>
+                </div>
+                
+                <div class="gallery-admin-grid" id="galleryAdminGrid">
+                    <!-- Photos will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Social Section -->
+            <section class="content-section" id="socialSection">
+                <div class="section-header-admin">
+                    <h2><i class="fas fa-share-alt"></i> Quản lý liên kết MXH</h2>
+                    <button class="btn-primary" onclick="showAddSocialModal()">
+                        <i class="fas fa-plus"></i> Thêm liên kết
+                    </button>
+                </div>
+                
+                <div class="social-admin-list" id="socialAdminList">
+                    <!-- Social links will be loaded here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Add/Edit Photo Modal -->
+    <div class="modal" id="photoModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="photoModalTitle">Thêm ảnh mới</h3>
+                <button class="modal-close" onclick="hidePhotoModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="photoForm" onsubmit="savePhoto(event)">
+                <input type="hidden" id="photoIndex" value="-1">
+                
+                <div class="form-group">
+                    <label for="photoSrc">URL ảnh</label>
+                    <input type="text" id="photoSrc" placeholder="photos/ten-anh.jpg" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="photoTitle">Tiêu đề</label>
+                    <input type="text" id="photoTitle" placeholder="Tiêu đề ảnh" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="photoDesc">Mô tả</label>
+                    <input type="text" id="photoDesc" placeholder="Mô tả ngắn">
+                </div>
+                
+                <div class="form-group">
+                    <label for="photoCategory">Danh mục</label>
+                    <select id="photoCategory">
+                        <option value="nature">Nature</option>
+                        <option value="city">City</option>
+                        <option value="night">Night</option>
+                    </select>
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="hidePhotoModal()">Hủy</button>
+                    <button type="submit" class="btn-primary">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add/Edit Social Modal -->
+    <div class="modal" id="socialModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="socialModalTitle">Thêm liên kết MXH</h3>
+                <button class="modal-close" onclick="hideSocialModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="socialForm" onsubmit="saveSocial(event)">
+                <input type="hidden" id="socialIndex" value="-1">
+                
+                <div class="form-group">
+                    <label for="socialPlatform">Nền tảng</label>
+                    <select id="socialPlatform">
+                        <option value="facebook">Facebook</option>
+                        <option value="instagram">Instagram</option>
+                        <option value="tiktok">TikTok</option>
+                        <option value="youtube">YouTube</option>
+                        <option value="twitter">Twitter</option>
+                        <option value="telegram">Telegram</option>
+                        <option value="zalo">Zalo</option>
+                        <option value="threads">Threads</option>
+                        <option value="github">GitHub</option>
+                        <option value="linkedin">LinkedIn</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="socialName">Tên hiển thị</label>
+                    <input type="text" id="socialName" placeholder="VD: Facebook" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="socialUsername">Username</label>
+                    <input type="text" id="socialUsername" placeholder="VD: @vanlinh">
+                </div>
+                
+                <div class="form-group">
+                    <label for="socialUrl">URL</label>
+                    <input type="url" id="socialUrl" placeholder="https://..." required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="socialAction">Nút hành động</label>
+                    <input type="text" id="socialAction" placeholder="VD: Follow, Subscribe, Chat">
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="hideSocialModal()">Hủy</button>
+                    <button type="submit" class="btn-primary">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Confirm Delete Modal -->
+    <div class="modal" id="confirmModal">
+        <div class="modal-content modal-small">
+            <div class="modal-header">
+                <h3>Xác nhận xóa</h3>
+                <button class="modal-close" onclick="hideConfirmModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <p class="confirm-message" id="confirmMessage">Bạn có chắc chắn muốn xóa?</p>
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" onclick="hideConfirmModal()">Hủy</button>
+                <button type="button" class="btn-danger" id="confirmDeleteBtn">Xóa</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

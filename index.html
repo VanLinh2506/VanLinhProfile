@@ -42,8 +42,17 @@
         </div>
         <div class="nav-links">
             <a href="#profile" class="nav-link active" data-section="profile">Profile</a>
-            <a href="#gallery" class="nav-link" data-section="gallery">Gallery</a>
             <a href="#social" class="nav-link" data-section="social">Social</a>
+            <a href="#products" class="nav-link" data-section="products">Products</a>
+            <a href="#gallery" class="nav-link" data-section="gallery">Gallery</a>
+        </div>
+        <div class="nav-auth">
+            <a href="admin.html" class="admin-btn" id="adminBtn" style="display: none;" onclick="event.stopPropagation();">
+                <i class="fas fa-cog"></i>
+            </a>
+            <button class="auth-btn" id="authBtn">
+                <i class="fas fa-sign-in-alt"></i> <span>Đăng nhập</span>
+            </button>
         </div>
     </nav>
 
@@ -131,6 +140,107 @@
                         <div class="stat-icon"><i class="fas fa-coffee"></i></div>
                         <span class="stat-number" data-target="999">0</span>
                         <span class="stat-label">Coffees</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Section -->
+        <section class="section social-section" id="social">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-icon"><i class="fas fa-link"></i></span>
+                    Connect With Me
+                </h2>
+                <p class="section-subtitle">Let's build something amazing together</p>
+            </div>
+
+            <!-- Social Orbit 2D -->
+            <div class="social-orbit-container">
+                <!-- Center Avatar -->
+                <div class="orbit-center">
+                    <img src="VanLinh.jpg" alt="Van Linh" class="orbit-avatar">
+                </div>
+                
+                <!-- Orbit Rings -->
+                <div class="orbit-ring ring-inner"></div>
+                <div class="orbit-ring ring-outer"></div>
+                
+                <!-- Inner Orbit - 4 icons -->
+                <div class="orbit-track inner-track">
+                    <a href="https://www.tiktok.com/@vanlinh20225" class="orbit-icon tiktok" target="_blank" title="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://www.facebook.com/van.linh.983706" class="orbit-icon facebook" target="_blank" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/vanlinh2506_/" class="orbit-icon instagram" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@xinux8190" class="orbit-icon youtube" target="_blank" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+                
+                <!-- Outer Orbit - 4 icons -->
+                <div class="orbit-track outer-track">
+                    <a href="#" class="orbit-icon telegram" target="_blank" title="Telegram">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                    <a href="https://zaloapp.com/qr/p/nkz87u9tltsg" class="orbit-icon zalo" target="_blank" title="Zalo">
+                        <span>Z</span>
+                    </a>
+                    <a href="https://www.threads.com/@vanlinh2506_" class="orbit-icon threads" target="_blank" title="Threads">
+                        <i class="fab fa-threads"></i>
+                    </a>
+                    <a href="https://github.com/VanLinh2506" class="orbit-icon github" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="section products-section" id="products">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-icon"><i class="fas fa-box-open"></i></span>
+                    My Products
+                </h2>
+                <p class="section-subtitle">Check out my latest creations</p>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded dynamically -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/400x250?text=Product+1" alt="Product 1">
+                        <div class="product-overlay">
+                            <a href="#" class="product-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Sản phẩm mẫu 1</h3>
+                        <p>Mô tả ngắn về sản phẩm của bạn. Có thể thêm thông tin chi tiết ở đây.</p>
+                        <a href="#" class="product-btn" target="_blank">Xem chi tiết</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/400x250?text=Product+2" alt="Product 2">
+                        <div class="product-overlay">
+                            <a href="#" class="product-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Sản phẩm mẫu 2</h3>
+                        <p>Mô tả ngắn về sản phẩm của bạn. Có thể thêm thông tin chi tiết ở đây.</p>
+                        <a href="#" class="product-btn" target="_blank">Xem chi tiết</a>
                     </div>
                 </div>
             </div>
@@ -300,6 +410,17 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Gallery Pagination -->
+            <div class="gallery-pagination" id="galleryPagination">
+                <button class="page-btn prev" onclick="changePage(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="page-numbers" id="pageNumbers"></div>
+                <button class="page-btn next" onclick="changePage(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
         </section>
 
         <!-- Lightbox -->
@@ -322,131 +443,6 @@
             </div>
             <div class="lightbox-thumbnails" id="lightboxThumbs"></div>
         </div>
-
-        <!-- Social Section -->
-        <section class="section social-section" id="social">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="title-icon"><i class="fas fa-link"></i></span>
-                    Connect With Me
-                </h2>
-                <p class="section-subtitle">Let's build something amazing together</p>
-            </div>
-
-            <div class="social-grid">
-                <a href="https://www.tiktok.com/@vanlinh20225?_r=1&_t=ZS-91vlUuSzC47" class="social-card tiktok" target="_blank">
-                    <div class="card-bg"></div>
-                    <div class="card-content">
-                        <div class="icon-wrapper">
-                            <i class="fab fa-tiktok"></i>
-                            <div class="icon-ring"></div>
-                        </div>
-                        <h3>TikTok</h3>
-                        <p>@vanlinh</p>
-                        <span class="follow-btn">Follow</span>
-                    </div>
-                    <div class="card-particles"></div>
-                </a>
-
-                <a href="https://www.facebook.com/van.linh.983706" class="social-card facebook" target="_blank">
-                    <div class="card-bg"></div>
-                    <div class="card-content">
-                        <div class="icon-wrapper">
-                            <i class="fab fa-facebook-f"></i>
-                            <div class="icon-ring"></div>
-                        </div>
-                        <h3>Facebook</h3>
-                        <p>Van Linh</p>
-                        <span class="follow-btn">Add Friend</span>
-                    </div>
-                    <div class="card-particles"></div>
-                </a>
-
-                <a href="https://www.instagram.com/vanlinh2506_/" class="social-card instagram" target="_blank">
-                    <div class="card-bg"></div>
-                    <div class="card-content">
-                        <div class="icon-wrapper">
-                            <i class="fab fa-instagram"></i>
-                            <div class="icon-ring"></div>
-                        </div>
-                        <h3>Instagram</h3>
-                        <p>@vanlinh</p>
-                        <span class="follow-btn">Follow</span>
-                    </div>
-                    <div class="card-particles"></div>
-                </a>
-
-                <a href="https://www.youtube.com/@xinux8190" class="social-card youtube" target="_blank">
-                    <div class="card-bg"></div>
-                    <div class="card-content">
-                        <div class="icon-wrapper">
-                            <i class="fab fa-youtube"></i>
-                            <div class="icon-ring"></div>
-                        </div>
-                        <h3>YouTube</h3>
-                        <p>Van Linh Channel</p>
-                        <span class="follow-btn">Subscribe</span>
-                    </div>
-                    <div class="card-particles"></div>
-                </a>
-
-                <a href="#" class="social-card telegram" target="_blank">
-                    <div class="card-bg"></div>
-                    <div class="card-content">
-                        <div class="icon-wrapper">
-                            <i class="fab fa-telegram-plane"></i>
-                            <div class="icon-ring"></div>
-                        </div>
-                        <h3>Telegram</h3>
-                        <p>@vanlinh</p>
-                        <span class="follow-btn">Message</span>
-                    </div>
-                    <div class="card-particles"></div>
-                </a>
-
-                <a href="https://zaloapp.com/qr/p/nkz87u9tltsg" class="social-card zalo" target="_blank">
-                    <div class="card-bg"></div>
-                    <div class="card-content">
-                        <div class="icon-wrapper">
-                            <span class="zalo-icon">Z</span>
-                            <div class="icon-ring"></div>
-                        </div>
-                        <h3>Zalo</h3>
-                        <p>Van Linh</p>
-                        <span class="follow-btn">Chat</span>
-                    </div>
-                    <div class="card-particles"></div>
-                </a>
-
-                <a href="https://www.threads.com/@vanlinh2506_?igshid=NTc4MTIwNjQ2YQ==" class="social-card threads" target="_blank">
-                    <div class="card-bg"></div>
-                    <div class="card-content">
-                        <div class="icon-wrapper">
-                            <i class="fab fa-threads"></i>
-                            <div class="icon-ring"></div>
-                        </div>
-                        <h3>Threads</h3>
-                        <p>@vanlinh</p>
-                        <span class="follow-btn">Follow</span>
-                    </div>
-                    <div class="card-particles"></div>
-                </a>
-
-                <a href="https://github.com/VanLinh2506" class="social-card github" target="_blank">
-                    <div class="card-bg"></div>
-                    <div class="card-content">
-                        <div class="icon-wrapper">
-                            <i class="fab fa-github"></i>
-                            <div class="icon-ring"></div>
-                        </div>
-                        <h3>GitHub</h3>
-                        <p>@vanlinh</p>
-                        <span class="follow-btn">Follow</span>
-                    </div>
-                    <div class="card-particles"></div>
-                </a>
-            </div>
-        </section>
     </main>
 
     <!-- Footer -->
@@ -475,6 +471,95 @@
         <i class="fas fa-moon"></i>
     </button>
 
+    <!-- Auth Modal -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-modal-content">
+            <button class="auth-modal-close" onclick="hideAuthModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="loginTab" onclick="switchAuthTab('login')">Đăng nhập</button>
+                <button class="auth-tab" id="registerTab" onclick="switchAuthTab('register')">Đăng ký</button>
+            </div>
+            
+            <!-- Login Form -->
+            <form class="auth-form active" id="loginForm" onsubmit="handleLogin(event)">
+                <div class="auth-header">
+                    <h2>Chào mừng trở lại!</h2>
+                    <p>Đăng nhập để tiếp tục</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="loginEmail" placeholder="your@email.com" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="loginPassword">Mật khẩu</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="loginPassword" placeholder="••••••••" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="auth-submit">
+                    <span>Đăng nhập</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+            
+            <!-- Register Form -->
+            <form class="auth-form" id="registerForm" onsubmit="handleRegister(event)">
+                <div class="auth-header">
+                    <h2>Tạo tài khoản</h2>
+                    <p>Đăng ký để bắt đầu</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="registerName">Họ tên</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="registerName" placeholder="Nguyễn Văn A" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="registerEmail" placeholder="your@email.com" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="registerPassword">Mật khẩu</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="registerPassword" placeholder="••••••••" required minlength="6">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="registerConfirmPassword">Xác nhận mật khẩu</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="registerConfirmPassword" placeholder="••••••••" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="auth-submit">
+                    <span>Đăng ký</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

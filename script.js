@@ -18,9 +18,75 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initTypewriter();
     initGalleryFilter();
+    initGalleryPagination();
     initLightbox();
     initScrollAnimations();
 });
+
+// Gallery Pagination
+let currentPage = 1;
+const itemsPerPage = 6;
+let filteredItems = [];
+
+function initGalleryPagination() {
+    const allItems = document.querySelectorAll('.gallery-item');
+    filteredItems = Array.from(allItems);
+    updatePagination();
+    showPage(1);
+}
+
+function updatePagination() {
+    const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
+    const pageNumbers = document.getElementById('pageNumbers');
+    
+    if (!pageNumbers) return;
+    
+    pageNumbers.innerHTML = '';
+    
+    for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'page-num' + (i === currentPage ? ' active' : '');
+        btn.textContent = i;
+        btn.onclick = () => showPage(i);
+        pageNumbers.appendChild(btn);
+    }
+    
+    // Update prev/next buttons
+    const prevBtn = document.querySelector('.page-btn.prev');
+    const nextBtn = document.querySelector('.page-btn.next');
+    
+    if (prevBtn) prevBtn.disabled = currentPage === 1;
+    if (nextBtn) nextBtn.disabled = currentPage === totalPages || totalPages === 0;
+}
+
+function showPage(page) {
+    currentPage = page;
+    
+    // Hide all items first
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        item.style.display = 'none';
+    });
+    
+    // Show items for current page
+    const start = (page - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    
+    filteredItems.slice(start, end).forEach((item, index) => {
+        item.style.display = 'block';
+        item.style.animation = `galleryFadeIn 0.5s ease ${index * 0.1}s forwards`;
+    });
+    
+    updatePagination();
+}
+
+function changePage(direction) {
+    const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
+    const newPage = currentPage + direction;
+    
+    if (newPage >= 1 && newPage <= totalPages) {
+        showPage(newPage);
+    }
+}
 
 // Matrix Rain Effect
 function createMatrixRain() {
@@ -376,19 +442,16 @@ function initGalleryFilter() {
             
             const filter = btn.dataset.filter;
             
-            galleryItems.forEach((item, index) => {
-                const category = item.dataset.category;
-                
-                if (filter === 'all' || category === filter) {
-                    item.classList.remove('hidden');
-                    item.style.animation = 'none';
-                    setTimeout(() => {
-                        item.style.animation = `galleryFadeIn 0.6s ease ${index * 0.1}s forwards`;
-                    }, 10);
-                } else {
-                    item.classList.add('hidden');
-                }
-            });
+            // Update filtered items for pagination
+            if (filter === 'all') {
+                filteredItems = Array.from(galleryItems);
+            } else {
+                filteredItems = Array.from(galleryItems).filter(item => item.dataset.category === filter);
+            }
+            
+            // Reset to page 1 and show
+            currentPage = 1;
+            showPage(1);
         });
     });
 }
