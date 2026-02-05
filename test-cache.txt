@@ -1,0 +1,15 @@
+Để test cache, hãy:
+
+1. Mở DevTools (F12)
+2. Vào tab Elements
+3. Click vào một skill-category card
+4. Xem phần Styles bên phải
+5. Tìm .skill-category và xem background value là gì
+6. Nếu không phải 0.15, có thể là:
+   - Browser cache
+   - CSS bị ghi đè
+   - File CSS chưa save
+
+Thử:
+- Ctrl + Shift + R (hard refresh)
+- Hoặc chụp màn hình phần Styles cho tôi xem

@@ -1,565 +1,488 @@
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Van Linh - Developer Profile</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
-<body>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loading">
-        <div class="loader-container">
-            <div class="code-loader">
-                <span class="bracket">{</span>
-                <span class="loading-dots">
-                    <span>.</span><span>.</span><span>.</span>
-                </span>
-                <span class="bracket">}</span>
-            </div>
-            <p class="loader-text">Compiling...</p>
-        </div>
-    </div>
-
-    <!-- Animated Background -->
-    <div class="bg-animation">
-        <div class="matrix-rain" id="matrixRain"></div>
-        <div class="stars" id="stars"></div>
-        <div class="shooting-stars" id="shootingStars"></div>
-        <div class="floating-shapes" id="shapes"></div>
-        <div class="code-particles" id="codeParticles"></div>
-    </div>
-
-    <!-- Cursor Effect -->
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-follower" id="cursorFollower"></div>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[Tên của bạn] - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+Cuba:wght@100..400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <!-- Navigation -->
-    <nav class="nav-bar" id="navbar">
-        <div class="nav-logo">
-            <span class="logo-bracket">&lt;</span>VL<span class="logo-bracket">/&gt;</span>
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo">My Profile</div>
+        <ul class="nav-menu">
+          <li><a href="#home">Trang chủ</a></li>
+          <li><a href="#about">Về tôi</a></li>
+          <li><a href="#skills">Kỹ năng</a></li>
+          <li><a href="#projects">Dự án</a></li>
+          <li><a href="#experience">Kinh nghiệm</a></li>
+          <li><a href="#contact">Liên hệ</a></li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-        <div class="nav-links">
-            <a href="#profile" class="nav-link active" data-section="profile">Profile</a>
-            <a href="#social" class="nav-link" data-section="social">Social</a>
-            <a href="#products" class="nav-link" data-section="products">Products</a>
-            <a href="#gallery" class="nav-link" data-section="gallery">Gallery</a>
-        </div>
-        <div class="nav-auth">
-            <a href="admin.html" class="admin-btn" id="adminBtn" style="display: none;" onclick="event.stopPropagation();">
-                <i class="fas fa-cog"></i>
-            </a>
-            <button class="auth-btn" id="authBtn">
-                <i class="fas fa-sign-in-alt"></i> <span>Đăng nhập</span>
-            </button>
-        </div>
+        <!-- Background Toggle Button -->
+        <button
+          class="bg-toggle"
+          id="bgToggle"
+          title="Chuyển đổi chế độ sáng/tối"
+        ></button>
+      </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="main-container">
-        <!-- Profile Section -->
-        <section class="section profile-section" id="profile">
-            <div class="profile-card" id="profileCard">
-                <div class="card-glow"></div>
-                <div class="card-border"></div>
-                <div class="glitch-effect"></div>
-                
-                <!-- Avatar Section -->
-                <div class="avatar-container">
-                    <div class="avatar-ring">
-                        <div class="ring ring-1"></div>
-                        <div class="ring ring-2"></div>
-                        <div class="ring ring-3"></div>
-                        <div class="orbit-dot"></div>
-                    </div>
-                    <div class="avatar-wrapper">
-                        <img src="VanLinh.jpg" alt="Van Linh" class="avatar">
-                        <div class="avatar-shine"></div>
-                        <div class="avatar-glitch"></div>
-                    </div>
-                    <div class="status-badge">
-                        <span class="status-dot"></span>
-                        <span class="status-text">Available for hire</span>
-                    </div>
-                </div>
-
-                <!-- Info Section -->
-                <div class="info-section">
-                    <h1 class="name glitch-text" data-text="Van Linh">
-                        <span class="letter" style="--i:0">V</span>
-                        <span class="letter" style="--i:1">a</span>
-                        <span class="letter" style="--i:2">n</span>
-                        <span class="letter" style="--i:3"> </span>
-                        <span class="letter" style="--i:4">L</span>
-                        <span class="letter" style="--i:5">i</span>
-                        <span class="letter" style="--i:6">n</span>
-                        <span class="letter" style="--i:7">h</span>
-                    </h1>
-                    <div class="title-wrapper">
-                        <span class="title-prefix">&lt;</span>
-                        <p class="job-title" id="jobTitle"></p>
-                        <span class="title-suffix">/&gt;</span>
-                        <span class="cursor-blink">|</span>
-                    </div>
-                    <p class="bio">Passionate about creating beautiful & functional code ✨</p>
-                    
-                    <!-- Skills -->
-                    <div class="skills-container">
-                        <div class="skill-tag" style="--delay: 0">
-                            <i class="fab fa-html5"></i> HTML
-                        </div>
-                        <div class="skill-tag" style="--delay: 1">
-                            <i class="fab fa-css3-alt"></i> CSS
-                        </div>
-                        <div class="skill-tag" style="--delay: 2">
-                            <i class="fab fa-js"></i> JavaScript
-                        </div>
-                        <div class="skill-tag" style="--delay: 3">
-                            <i class="fab fa-react"></i> React
-                        </div>
-                        <div class="skill-tag" style="--delay: 4">
-                            <i class="fab fa-node-js"></i> Node.js
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Stats Section -->
-                <div class="stats-section">
-                    <div class="stat-item">
-                        <div class="stat-icon"><i class="fas fa-code"></i></div>
-                        <span class="stat-number" data-target="1500">0</span>
-                        <span class="stat-label">Commits</span>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
-                        <span class="stat-number" data-target="50">0</span>
-                        <span class="stat-label">Projects</span>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-icon"><i class="fas fa-coffee"></i></div>
-                        <span class="stat-number" data-target="999">0</span>
-                        <span class="stat-label">Coffees</span>
-                    </div>
-                </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-layout">
+            <div class="hero-avatar">
+              <img src="img/myavt.jpg" alt="Avatar" />
             </div>
-        </section>
-
-        <!-- Social Section -->
-        <section class="section social-section" id="social">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="title-icon"><i class="fas fa-link"></i></span>
-                    Connect With Me
-                </h2>
-                <p class="section-subtitle">Let's build something amazing together</p>
+            <div class="hero-info">
+              <h1 class="handwriting-title">
+                <svg viewBox="0 0 800 100" xmlns="http://www.w3.org/2000/svg">
+                  <text x="0" y="70" class="stroke-text">Xin chào, tôi là</text>
+                </svg>
+              </h1>
+              <h1 class="name-highlight">
+                <svg viewBox="0 0 900 120" xmlns="http://www.w3.org/2000/svg">
+                  <text x="0" y="85" class="stroke-text-name">
+                    Nguyễn Văn Linh
+                  </text>
+                </svg>
+              </h1>
+              <h2>WEB DEVELOPER</h2>
+              <p>xấu zai, học nqu</p>
+              <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Liên hệ với tôi</a>
+                <a href="#projects" class="btn btn-secondary">Xem dự án</a>
+              </div>
+              <div class="social-links">
+                <a href="[LinkedIn URL]" target="_blank"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+                <a href="[GitHub URL]" target="_blank"
+                  ><i class="fab fa-github"></i
+                ></a>
+                <a href="[Email]"><i class="fas fa-envelope"></i></a>
+              </div>
             </div>
-
-            <!-- Social Orbit 2D -->
-            <div class="social-orbit-container">
-                <!-- Center Avatar -->
-                <div class="orbit-center">
-                    <img src="VanLinh.jpg" alt="Van Linh" class="orbit-avatar">
-                </div>
-                
-                <!-- Orbit Rings -->
-                <div class="orbit-ring ring-inner"></div>
-                <div class="orbit-ring ring-outer"></div>
-                
-                <!-- Inner Orbit - 4 icons -->
-                <div class="orbit-track inner-track">
-                    <a href="https://www.tiktok.com/@vanlinh20225" class="orbit-icon tiktok" target="_blank" title="TikTok">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
-                    <a href="https://www.facebook.com/van.linh.983706" class="orbit-icon facebook" target="_blank" title="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.instagram.com/vanlinh2506_/" class="orbit-icon instagram" target="_blank" title="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.youtube.com/@xinux8190" class="orbit-icon youtube" target="_blank" title="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                </div>
-                
-                <!-- Outer Orbit - 4 icons -->
-                <div class="orbit-track outer-track">
-                    <a href="#" class="orbit-icon telegram" target="_blank" title="Telegram">
-                        <i class="fab fa-telegram-plane"></i>
-                    </a>
-                    <a href="https://zaloapp.com/qr/p/nkz87u9tltsg" class="orbit-icon zalo" target="_blank" title="Zalo">
-                        <span>Z</span>
-                    </a>
-                    <a href="https://www.threads.com/@vanlinh2506_" class="orbit-icon threads" target="_blank" title="Threads">
-                        <i class="fab fa-threads"></i>
-                    </a>
-                    <a href="https://github.com/VanLinh2506" class="orbit-icon github" target="_blank" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Products Section -->
-        <section class="section products-section" id="products">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="title-icon"><i class="fas fa-box-open"></i></span>
-                    My Products
-                </h2>
-                <p class="section-subtitle">Check out my latest creations</p>
-            </div>
-
-            <div class="products-grid" id="productsGrid">
-                <!-- Products will be loaded dynamically -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/400x250?text=Product+1" alt="Product 1">
-                        <div class="product-overlay">
-                            <a href="#" class="product-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Sản phẩm mẫu 1</h3>
-                        <p>Mô tả ngắn về sản phẩm của bạn. Có thể thêm thông tin chi tiết ở đây.</p>
-                        <a href="#" class="product-btn" target="_blank">Xem chi tiết</a>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://via.placeholder.com/400x250?text=Product+2" alt="Product 2">
-                        <div class="product-overlay">
-                            <a href="#" class="product-link" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Sản phẩm mẫu 2</h3>
-                        <p>Mô tả ngắn về sản phẩm của bạn. Có thể thêm thông tin chi tiết ở đây.</p>
-                        <a href="#" class="product-btn" target="_blank">Xem chi tiết</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Gallery Section -->
-        <section class="section gallery-section" id="gallery">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="title-icon"><i class="fas fa-camera-retro"></i></span>
-                    My Photography
-                </h2>
-                <p class="section-subtitle">Capturing moments through my lens</p>
-            </div>
-
-            <!-- Gallery Filter -->
-            <div class="gallery-filter">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="nature">Nature</button>
-                <button class="filter-btn" data-filter="city">City</button>
-                <button class="filter-btn" data-filter="night">Night</button>
-            </div>
-
-            <!-- Gallery Grid -->
-            <div class="gallery-grid" id="galleryGrid">
-                <div class="gallery-item" data-category="nature" data-aos="zoom-in">
-                    <div class="gallery-card">
-                        <img src="photos/sunset-village.jpg" alt="Hoàng hôn làng quê">
-                        <div class="gallery-overlay">
-                            <div class="overlay-content">
-                                <h3>Hoàng Hôn Làng Quê</h3>
-                                <p>Vẻ đẹp bình yên</p>
-                                <button class="view-btn" onclick="openLightbox(0)">
-                                    <i class="fas fa-expand"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-shine"></div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="city" data-aos="zoom-in">
-                    <div class="gallery-card">
-                        <img src="photos/lanterns.jpg" alt="Phố cổ cờ đỏ">
-                        <div class="gallery-overlay">
-                            <div class="overlay-content">
-                                <h3>Phố Cổ</h3>
-                                <p>Nét đẹp truyền thống</p>
-                                <button class="view-btn" onclick="openLightbox(1)">
-                                    <i class="fas fa-expand"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-shine"></div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="night" data-aos="zoom-in">
-                    <div class="gallery-card">
-                        <img src="photos/red-flags.jpg" alt="Đèn lồng">
-                        <div class="gallery-overlay">
-                            <div class="overlay-content">
-                                <h3>Đèn Lồng Hội An</h3>
-                                <p>Lung linh đêm phố cổ</p>
-                                <button class="view-btn" onclick="openLightbox(2)">
-                                    <i class="fas fa-expand"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-shine"></div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="city" data-aos="zoom-in">
-                    <div class="gallery-card">
-                        <img src="photos/lake-reflection.jpg" alt="Nắng sớm">
-                        <div class="gallery-overlay">
-                            <div class="overlay-content">
-                                <h3>Bình Minh</h3>
-                                <p>Khởi đầu ngày mới</p>
-                                <button class="view-btn" onclick="openLightbox(3)">
-                                    <i class="fas fa-expand"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-shine"></div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="city" data-aos="zoom-in">
-                    <div class="gallery-card">
-                        <img src="photos/night-park.jpg" alt="Nắng chiều">
-                        <div class="gallery-overlay">
-                            <div class="overlay-content">
-                                <h3>Nắng Chiều</h3>
-                                <p>Ánh nắng vàng ấm áp</p>
-                                <button class="view-btn" onclick="openLightbox(4)">
-                                    <i class="fas fa-expand"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-shine"></div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="night" data-aos="zoom-in">
-                    <div class="gallery-card">
-                        <img src="photos/morning-sun.jpg" alt="Công viên đêm">
-                        <div class="gallery-overlay">
-                            <div class="overlay-content">
-                                <h3>Đêm Yên Bình</h3>
-                                <p>Ánh đèn thành phố</p>
-                                <button class="view-btn" onclick="openLightbox(5)">
-                                    <i class="fas fa-expand"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-shine"></div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="nature" data-aos="zoom-in">
-                    <div class="gallery-card">
-                        <img src="photos/pagoda.jpg" alt="Mặt hồ">
-                        <div class="gallery-overlay">
-                            <div class="overlay-content">
-                                <h3>Mặt Hồ Tĩnh Lặng</h3>
-                                <p>Phản chiếu bầu trời</p>
-                                <button class="view-btn" onclick="openLightbox(6)">
-                                    <i class="fas fa-expand"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-shine"></div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="nature" data-aos="zoom-in">
-                    <div class="gallery-card">
-                        <img src="photos/sunset-city.jpg" alt="Con đường">
-                        <div class="gallery-overlay">
-                            <div class="overlay-content">
-                                <h3>Con Đường</h3>
-                                <p>Hành trình phía trước</p>
-                                <button class="view-btn" onclick="openLightbox(7)">
-                                    <i class="fas fa-expand"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-shine"></div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="night" data-aos="zoom-in">
-                    <div class="gallery-card">
-                        <img src="photos/park-path.jpg" alt="Tháp cổ">
-                        <div class="gallery-overlay">
-                            <div class="overlay-content">
-                                <h3>Tháp Cổ</h3>
-                                <p>Ánh trăng huyền ảo</p>
-                                <button class="view-btn" onclick="openLightbox(8)">
-                                    <i class="fas fa-expand"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-shine"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Gallery Pagination -->
-            <div class="gallery-pagination" id="galleryPagination">
-                <button class="page-btn prev" onclick="changePage(-1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="page-numbers" id="pageNumbers"></div>
-                <button class="page-btn next" onclick="changePage(1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </section>
-
-        <!-- Lightbox -->
-        <div class="lightbox" id="lightbox">
-            <button class="lightbox-close" onclick="closeLightbox()">
-                <i class="fas fa-times"></i>
-            </button>
-            <button class="lightbox-nav prev" onclick="navigateLightbox(-1)">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="lightbox-nav next" onclick="navigateLightbox(1)">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-            <div class="lightbox-content">
-                <img src="" alt="" id="lightboxImg">
-                <div class="lightbox-info">
-                    <h3 id="lightboxTitle"></h3>
-                    <p id="lightboxDesc"></p>
-                </div>
-            </div>
-            <div class="lightbox-thumbnails" id="lightboxThumbs"></div>
+          </div>
         </div>
-    </main>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">Về tôi</h2>
+        <div class="about-content">
+          <div class="about-image">
+            <img src="img/myavt.jpg" alt="Profile Picture" />
+          </div>
+          <div class="about-text">
+            <h3>Giới thiệu</h3>
+            <p>
+              [Viết đoạn văn giới thiệu chi tiết về bản thân, đam mê, mục tiêu
+              nghề nghiệp]
+            </p>
+            <div class="about-info">
+              <div class="info-item">
+                <i class="fas fa-user"></i>
+                <span><strong>Họ tên:</strong> Nguyễn Văn Linh</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-birthday-cake"></i>
+                <span><strong>Ngày sinh:</strong>25/06/2006</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span><strong>Địa chỉ:</strong>Thanh Hóa, Việt Nam</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-phone"></i>
+                <span><strong>Điện thoại:</strong>0333044840</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <span
+                  ><strong>Email:</strong>nguyenvanlinh25062006@gmail.com</span
+                >
+              </div>
+            </div>
+            <a href="[Link CV PDF]" class="btn btn-primary" download>
+              <i class="fas fa-download"></i> Tải CV
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+      <div class="container">
+        <h2 class="section-title">Kỹ năng</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3><i class="fas fa-code"></i> Ngôn ngữ lập trình</h3>
+            <div class="skill-item">
+              <span>JavaScript</span>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span>Python</span>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 15%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span>Java</span>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 10%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3><i class="fas fa-laptop-code"></i> Framework & Thư viện</h3>
+            <div class="skill-item">
+              <span>React</span>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 10%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span>Node.js</span>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 72%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span>Django</span>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 10%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3><i class="fas fa-tools"></i> Công cụ & Khác</h3>
+            <div class="skill-item">
+              <span>Git/GitHub</span>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 92%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span>Docker</span>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 70%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span>SQL/NoSQL</span>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2 class="section-title">Dự án nổi bật</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-image">
+              <img src="img/duan1.png" alt="Project 1" />
+              <div class="project-overlay">
+                <a href="https://tuanawh.store" target="_blank" class="btn-icon"
+                  ><i class="fas fa-external-link-alt"></i
+                ></a>
+                <a href="[GitHub URL]" target="_blank" class="btn-icon"
+                  ><i class="fab fa-github"></i
+                ></a>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>CineHub: Tiến gần hơn với thế giới phim</h3>
+              <p>
+                [Mô tả ngắn gọn về dự án, công nghệ sử dụng, vai trò của bạn]
+              </p>
+              <div class="project-tags">
+                <span class="tag">php</span>
+                <span class="tag">html/css</span>
+                <span class="tag">javascript</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <img src="[Ảnh dự án 2]" alt="Project 2" />
+              <div class="project-overlay">
+                <a href="[Demo URL]" target="_blank" class="btn-icon"
+                  ><i class="fas fa-external-link-alt"></i
+                ></a>
+                <a href="[GitHub URL]" target="_blank" class="btn-icon"
+                  ><i class="fab fa-github"></i
+                ></a>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>[Tên dự án 2]</h3>
+              <p>
+                [Mô tả ngắn gọn về dự án, công nghệ sử dụng, vai trò của bạn]
+              </p>
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Django</span>
+                <span class="tag">PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <img src="[Ảnh dự án 3]" alt="Project 3" />
+              <div class="project-overlay">
+                <a href="[Demo URL]" target="_blank" class="btn-icon"
+                  ><i class="fas fa-external-link-alt"></i
+                ></a>
+                <a href="[GitHub URL]" target="_blank" class="btn-icon"
+                  ><i class="fab fa-github"></i
+                ></a>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>[Tên dự án 3]</h3>
+              <p>
+                [Mô tả ngắn gọn về dự án, công nghệ sử dụng, vai trò của bạn]
+              </p>
+              <div class="project-tags">
+                <span class="tag">Vue.js</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">Tailwind</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+      <div class="container">
+        <h2 class="section-title">Kinh nghiệm & Học vấn</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-icon"><i class="fas fa-briefcase"></i></div>
+            <div class="timeline-content">
+              <h3>[Vị trí công việc]</h3>
+              <h4>[Tên công ty]</h4>
+              <span class="timeline-date"
+                >[Tháng/Năm] - [Tháng/Năm hoặc Hiện tại]</span
+              >
+              <p>[Mô tả công việc, trách nhiệm, thành tựu đạt được]</p>
+              <ul>
+                <li>[Thành tựu cụ thể 1]</li>
+                <li>[Thành tựu cụ thể 2]</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-icon"><i class="fas fa-briefcase"></i></div>
+            <div class="timeline-content">
+              <h3>[Vị trí công việc trước]</h3>
+              <h4>[Tên công ty]</h4>
+              <span class="timeline-date">[Tháng/Năm] - [Tháng/Năm]</span>
+              <p>[Mô tả công việc, trách nhiệm, thành tựu đạt được]</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="timeline-content">
+              <h3>[Bằng cấp]</h3>
+              <h4>[Tên trường đại học]</h4>
+              <span class="timeline-date">[Năm] - [Năm]</span>
+              <p>Chuyên ngành: [Tên chuyên ngành]</p>
+              <p>GPA: [Điểm GPA nếu tốt]</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title">Liên hệ với tôi</h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <h3>Thông tin liên hệ</h3>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h4>Địa chỉ</h4>
+                <p>[Địa chỉ đầy đủ]</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <div>
+                <h4>Điện thoại</h4>
+                <p>[Số điện thoại]</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4>Email</h4>
+                <p>[Email]</p>
+              </div>
+            </div>
+            <div class="social-links-contact">
+              <a href="[LinkedIn]" target="_blank"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="[GitHub]" target="_blank"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a href="[Facebook]" target="_blank"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a href="[Twitter]" target="_blank"
+                ><i class="fab fa-twitter"></i
+              ></a>
+            </div>
+          </div>
+
+          <form class="contact-form">
+            <h3>Gửi tin nhắn</h3>
+            <div class="form-group">
+              <input type="text" placeholder="Họ tên" required />
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Email" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Tiêu đề" />
+            </div>
+            <div class="form-group">
+              <textarea
+                rows="5"
+                placeholder="Nội dung tin nhắn"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-paper-plane"></i> Gửi tin nhắn
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <span>&lt;</span>Van Linh<span>/&gt;</span>
-            </div>
-            <p>Made with <span class="heart">❤️</span> and lots of <span class="coffee">☕</span></p>
-            <p class="copyright">© 2025 Van Linh. All rights reserved.</p>
-        </div>
-        <div class="footer-wave">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
-            </svg>
-        </div>
+      <div class="container">
+        <p>&copy; 2026 [Tên của bạn]. All rights reserved.</p>
+        <p>Designed & Built by [Tên của bạn]</p>
+      </div>
     </footer>
 
-    <!-- Scroll to Top -->
-    <button class="scroll-top" id="scrollTop">
-        <i class="fas fa-rocket"></i>
-    </button>
-
-    <!-- Theme Toggle -->
-    <button class="theme-toggle" id="themeToggle">
-        <i class="fas fa-moon"></i>
-    </button>
-
-    <!-- Auth Modal -->
-    <div class="auth-modal" id="authModal">
-        <div class="auth-modal-content">
-            <button class="auth-modal-close" onclick="hideAuthModal()">
-                <i class="fas fa-times"></i>
-            </button>
-            
-            <div class="auth-tabs">
-                <button class="auth-tab active" id="loginTab" onclick="switchAuthTab('login')">Đăng nhập</button>
-                <button class="auth-tab" id="registerTab" onclick="switchAuthTab('register')">Đăng ký</button>
-            </div>
-            
-            <!-- Login Form -->
-            <form class="auth-form active" id="loginForm" onsubmit="handleLogin(event)">
-                <div class="auth-header">
-                    <h2>Chào mừng trở lại!</h2>
-                    <p>Đăng nhập để tiếp tục</p>
-                </div>
-                
-                <div class="form-group">
-                    <label for="loginEmail">Email</label>
-                    <div class="input-wrapper">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" id="loginEmail" placeholder="your@email.com" required>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="loginPassword">Mật khẩu</label>
-                    <div class="input-wrapper">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" id="loginPassword" placeholder="••••••••" required>
-                    </div>
-                </div>
-                
-                <button type="submit" class="auth-submit">
-                    <span>Đăng nhập</span>
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-            </form>
-            
-            <!-- Register Form -->
-            <form class="auth-form" id="registerForm" onsubmit="handleRegister(event)">
-                <div class="auth-header">
-                    <h2>Tạo tài khoản</h2>
-                    <p>Đăng ký để bắt đầu</p>
-                </div>
-                
-                <div class="form-group">
-                    <label for="registerName">Họ tên</label>
-                    <div class="input-wrapper">
-                        <i class="fas fa-user"></i>
-                        <input type="text" id="registerName" placeholder="Nguyễn Văn A" required>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="registerEmail">Email</label>
-                    <div class="input-wrapper">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" id="registerEmail" placeholder="your@email.com" required>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="registerPassword">Mật khẩu</label>
-                    <div class="input-wrapper">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" id="registerPassword" placeholder="••••••••" required minlength="6">
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="registerConfirmPassword">Xác nhận mật khẩu</label>
-                    <div class="input-wrapper">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" id="registerConfirmPassword" placeholder="••••••••" required>
-                    </div>
-                </div>
-                
-                <button type="submit" class="auth-submit">
-                    <span>Đăng ký</span>
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-            </form>
-        </div>
+    <!-- Floating Contact Button -->
+    <div class="floating-contact">
+      <button class="contact-toggle" id="contactToggle">
+        <i class="fas fa-comment-dots"></i>
+      </button>
+      <div class="contact-menu" id="contactMenu">
+        <a
+          href="https://facebook.com/[your-profile]"
+          target="_blank"
+          class="contact-item facebook"
+        >
+          <div class="contact-icon">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/2023_Facebook_icon.svg/2048px-2023_Facebook_icon.svg.png"
+              alt="Facebook"
+            />
+          </div>
+          <span>Facebook</span>
+        </a>
+        <a
+          href="https://zalo.me/[your-number]"
+          target="_blank"
+          class="contact-item zalo"
+        >
+          <div class="contact-icon">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Icon_of_Zalo.svg/2048px-Icon_of_Zalo.svg.png"
+              alt="Zalo"
+            />
+          </div>
+          <span>Zalo</span>
+        </a>
+        <a
+          href="https://tiktok.com/@[your-username]"
+          target="_blank"
+          class="contact-item tiktok"
+        >
+          <div class="contact-icon">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png"
+              alt="TikTok"
+            />
+          </div>
+          <span>TikTok</span>
+        </a>
+        <a href="mailto:[your-email]" class="contact-item email">
+          <div class="contact-icon">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/732/732200.png"
+              alt="Email"
+            />
+          </div>
+          <span>Email</span>
+        </a>
+        <a
+          href="https://instagram.com/[your-username]"
+          target="_blank"
+          class="contact-item instagram"
+        >
+          <div class="contact-icon">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"
+              alt="Instagram"
+            />
+          </div>
+          <span>Instagram</span>
+        </a>
+      </div>
     </div>
 
-    <script src="auth.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
