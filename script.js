@@ -109,3 +109,24 @@ if (contactToggle && contactMenu) {
     }
   });
 }
+
+
+// Hobbies Tab Switching
+document.addEventListener('DOMContentLoaded', function() {
+  const hobbyTabs = document.querySelectorAll('.hobby-tab');
+  const hobbyGalleries = document.querySelectorAll('.hobby-gallery');
+  
+  hobbyTabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      const targetTab = this.getAttribute('data-tab');
+      
+      // Remove active class from all tabs and galleries
+      hobbyTabs.forEach(t => t.classList.remove('active'));
+      hobbyGalleries.forEach(g => g.classList.remove('active'));
+      
+      // Add active class to clicked tab and corresponding gallery
+      this.classList.add('active');
+      document.getElementById(targetTab).classList.add('active');
+    });
+  });
+});
